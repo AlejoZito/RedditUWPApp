@@ -6,15 +6,37 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:vm="using:RedditUWPApp.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <RelativePanel x:Name="Information" Background="Yellow">
 
         <ListView x:Name="postsLists"
+                  ItemsSource="{x:Bind ViewModel.RedditPosts}"
                   MinWidth="300"
                   Background="Coral"
                   RelativePanel.AlignBottomWithPanel="True"
                   RelativePanel.AlignTopWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:RedditPostViewModel">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="300"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Width="44" Height="44"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Image.Source>
+                                <BitmapImage UriSource="{x:Bind ImageUri}" />
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text="{x:Bind Title}" Foreground="Teal" FontSize="14" 
+                                       Grid.Column="1" VerticalAlignment="Top"/>
+                        <TextBlock Text="{x:Bind Description}" Foreground="Teal" FontSize="14" 
+                                       Grid.Column="2" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
         <StackPanel x:Name="TotalInformation" RelativePanel.RightOf="postsLists" MinWidth="100" Background="Aquamarine" 

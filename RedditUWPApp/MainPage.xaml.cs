@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RedditUWPApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,8 +23,12 @@ namespace RedditUWPApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        MainPageViewModel ViewModel;
+
         public MainPage()
         {
+            ViewModel = new MainPageViewModel();
+
             this.InitializeComponent();
         }
     }
