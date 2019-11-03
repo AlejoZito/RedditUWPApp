@@ -28,8 +28,23 @@ namespace RedditUWPApp
         public MainPage()
         {
             ViewModel = new MainPageViewModel();
+            
+            //ToDo: handle no items in list
+            ViewModel.SelectPost(ViewModel.RedditPosts.FirstOrDefault());
 
             this.InitializeComponent();
+        }
+
+        private void PostsLists_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                ViewModel.SelectPost((RedditPostViewModel)e.ClickedItem);
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 }

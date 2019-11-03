@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RedditUWPApp.ViewModels
 {
-    public class MainPageViewModel
+    public class MainPageViewModel : ViewModel
     {
         public MainPageViewModel()
         {
@@ -112,6 +112,24 @@ namespace RedditUWPApp.ViewModels
             });
         }
 
+        public void SelectPost(RedditPostViewModel selectedItem)
+        {
+            //Only set property if new item was selected
+            if (SelectedPost != selectedItem)
+                SelectedPost = selectedItem;
+        }
+
         public ObservableCollection<RedditPostViewModel> RedditPosts { get; set; }
+
+        RedditPostViewModel _SelectedPost;
+        public RedditPostViewModel SelectedPost
+        {
+            get { return _SelectedPost; }
+            set
+            {
+                _SelectedPost = value;
+                OnPropertyChanged(nameof(SelectedPost));
+            }
+        }
     }
 }
