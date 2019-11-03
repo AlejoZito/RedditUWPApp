@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -32,9 +33,7 @@ namespace RedditUWPApp
             //ToDo: handle no items in list
             ViewModel.SelectPost(ViewModel.RedditPosts.FirstOrDefault());
 
-            this.InitializeComponent();
-
-            ViewModel.GetData();
+            this.InitializeComponent();            
         }
 
         private void PostsLists_ItemClick(object sender, ItemClickEventArgs e)
@@ -47,6 +46,11 @@ namespace RedditUWPApp
             {
                 
             }
+        }
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            await ViewModel.GetData();
         }
     }
 }

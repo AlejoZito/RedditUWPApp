@@ -21,103 +21,108 @@ namespace RedditUWPApp.ViewModels
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
             });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 2",
-                Description = "Ut enim ad minim veniam",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 1",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 2",
-                Description = "Ut enim ad minim veniam",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 1",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                ImageUri = "https://docs.microsoft.com/en-us/windows/uwp/design/basics/images/xaml-basics/margins.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 2",
-                Description = "Ut enim ad minim veniam",
-                ImageUri = "https://docs.microsoft.com/en-us/windows/uwp/design/basics/images/xaml-basics/margins.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 1",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                ImageUri = "https://docs.microsoft.com/en-us/windows/uwp/design/basics/images/xaml-basics/margins.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 2",
-                Description = "Ut enim ad minim veniam",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 1",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 2",
-                Description = "Ut enim ad minim veniam",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 1",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 2",
-                Description = "Ut enim ad minim veniam",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 1",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 2",
-                Description = "Ut enim ad minim veniam",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 1",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
-            RedditPosts.Add(new RedditPostViewModel()
-            {
-                Title = "Title 2",
-                Description = "Ut enim ad minim veniam",
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
-            });
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 2",
+            //    Description = "Ut enim ad minim veniam",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 1",
+            //    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 2",
+            //    Description = "Ut enim ad minim veniam",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 1",
+            //    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            //    ImageUri = "https://docs.microsoft.com/en-us/windows/uwp/design/basics/images/xaml-basics/margins.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 2",
+            //    Description = "Ut enim ad minim veniam",
+            //    ImageUri = "https://docs.microsoft.com/en-us/windows/uwp/design/basics/images/xaml-basics/margins.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 1",
+            //    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            //    ImageUri = "https://docs.microsoft.com/en-us/windows/uwp/design/basics/images/xaml-basics/margins.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 2",
+            //    Description = "Ut enim ad minim veniam",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 1",
+            //    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 2",
+            //    Description = "Ut enim ad minim veniam",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 1",
+            //    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 2",
+            //    Description = "Ut enim ad minim veniam",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 1",
+            //    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 2",
+            //    Description = "Ut enim ad minim veniam",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 1",
+            //    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
+            //RedditPosts.Add(new RedditPostViewModel()
+            //{
+            //    Title = "Title 2",
+            //    Description = "Ut enim ad minim veniam",
+            //    ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
+            //});
         }
 
         //ToDo: update observable collection with data from api
         public async Task GetData()
         {
             var apiClient = new RedditApiClient();
-            await apiClient.GetRedditPosts(10);
+            var redditPostsDTOs = await apiClient.GetRedditPosts(10);
+
+            foreach(var redditPostDTO in redditPostsDTOs)
+            {
+                RedditPosts.Add(new RedditPostViewModel(redditPostDTO));
+            }
         }
 
         public void SelectPost(RedditPostViewModel selectedItem)

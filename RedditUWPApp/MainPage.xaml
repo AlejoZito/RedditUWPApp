@@ -11,7 +11,7 @@
     <RelativePanel x:Name="Information" Background="Yellow">
 
         <ListView x:Name="postsLists"
-                  ItemsSource="{x:Bind ViewModel.RedditPosts}"
+                  ItemsSource="{x:Bind ViewModel.RedditPosts, Mode=TwoWay}"
                   MinWidth="300"
                   Background="Coral"
                   RelativePanel.AlignBottomWithPanel="True"
