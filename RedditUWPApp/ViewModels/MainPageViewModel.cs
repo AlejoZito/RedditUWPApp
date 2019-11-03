@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RedditUWPApp.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -110,6 +111,13 @@ namespace RedditUWPApp.ViewModels
                 Description = "Ut enim ad minim veniam",
                 ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png"
             });
+        }
+
+        //ToDo: update observable collection with data from api
+        public async Task GetData()
+        {
+            var apiClient = new RedditApiClient();
+            await apiClient.GetRedditPosts(10);
         }
 
         public void SelectPost(RedditPostViewModel selectedItem)

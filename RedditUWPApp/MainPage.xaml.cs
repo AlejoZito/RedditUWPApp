@@ -33,6 +33,8 @@ namespace RedditUWPApp
             ViewModel.SelectPost(ViewModel.RedditPosts.FirstOrDefault());
 
             this.InitializeComponent();
+
+            ViewModel.GetData();
         }
 
         private void PostsLists_ItemClick(object sender, ItemClickEventArgs e)
