@@ -12,15 +12,17 @@ namespace RedditUWPApp.DataAccess
     public class RedditApiClient : HttpClient
     {
         //ToDo replace
-        const string GetRedditPostsUrl = "https://www.reddit.com/top.json?limit={#limit}";
+        const string GetRedditPostsUrl = "https://www.reddit.com/top.json?raw_json=1";
 
-        public async Task<List<RedditApiPostWrapperDTO>> GetRedditPosts(int limit, string after = "")
+        public async Task<List<RedditApiPostWrapperDTO>> GetRedditPosts(int? limit = 0, string after = "")
         {
-            //ToDo improve query string handling
-            string queryString = GetRedditPostsUrl.Replace("{#limit}", limit.ToString());
+            string queryString = GetRedditPostsUrl;
+
+            if (limit.HasValue && limit > 0)
+                queryString += "&limit=" + limit;
 
             if (!string.IsNullOrEmpty(after))
-                queryString += "?after=" + after;
+                queryString += "&after=" + after;
 
             var response = await this.GetAsync(queryString);
 

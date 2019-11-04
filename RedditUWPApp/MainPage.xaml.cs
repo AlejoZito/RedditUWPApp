@@ -53,10 +53,9 @@ namespace RedditUWPApp
             await ViewModel.GetData();
         }
 
-        private void ListItem_DismissButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-            ViewModel.Dismiss((RedditPostViewModel)((Button)e.OriginalSource).DataContext);
+        private async void ListItem_DismissButton_Click(object sender, RoutedEventArgs e)
+        {            
+            await ViewModel.Dismiss((RedditPostViewModel)((Button)e.OriginalSource).DataContext);
         }
     }
 }

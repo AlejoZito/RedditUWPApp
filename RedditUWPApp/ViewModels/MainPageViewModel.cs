@@ -10,6 +10,8 @@ namespace RedditUWPApp.ViewModels
 {
     public class MainPageViewModel : ViewModel
     {
+        const int MAX_LIST_VALUE = 10;
+
         public MainPageViewModel()
         {
             RedditPosts = new ObservableCollection<RedditPostViewModel>();
@@ -26,13 +28,20 @@ namespace RedditUWPApp.ViewModels
         public async Task GetData()
         {
             //ToDo add Akavache Caching
-            //ToDo Pagination based on last item of current list
             var apiClient = new RedditApiClient();
-            var redditPostsDTOs = await apiClient.GetRedditPosts(10);
+
+            string lastPost = "";
+            if (RedditPosts != null && RedditPosts.Count > 0)
+                lastPost = RedditPosts.Last().Name;
+
+            //Get reddit posts starting from last post name (name=id)
+            var redditPostsDTOs = await apiClient.GetRedditPosts(MAX_LIST_VALUE, lastPost);
 
             foreach(var redditPostDTO in redditPostsDTOs)
             {
-                RedditPosts.Add(new RedditPostViewModel(redditPostDTO));
+                //Add items to UI list until MAX value is reached. To fetch new items, dismiss posts from UI.
+                if(RedditPosts.Count < MAX_LIST_VALUE)
+                    RedditPosts.Add(new RedditPostViewModel(redditPostDTO));
             }
         }
 
@@ -50,10 +59,14 @@ namespace RedditUWPApp.ViewModels
 
         public ObservableCollection<RedditPostViewModel> RedditPosts { get; set; }
 
-        public void Dismiss(RedditPostViewModel selectedItem)
+        public async Task Dismiss(RedditPostViewModel selectedItem)
         {
             if(RedditPosts.Contains(selectedItem))
-            RedditPosts.Remove(selectedItem);
+                RedditPosts.Remove(selectedItem);
+
+            //On Dismiss fetch new posts
+            //NOTE: If item dismissed is the last item, the same post will come from the API everytime.
+            await GetData();
         }
 
         RedditPostViewModel _SelectedPost;

@@ -10,6 +10,7 @@ namespace RedditUWPApp.ViewModels
 {
     public class RedditPostViewModel : ViewModel
     {
+        const string DEFAULT_IMAGE = "https://external-preview.redd.it/QJRqGgkUjhGSdu3vfpckrvg1UKzZOqX2BbglcLhjS70.png?auto=webp&s=c681ae9c9b5021d81b6c4e3a2830f09eff2368b5";
         public RedditPostViewModel() { }
 
         public RedditPostViewModel(RedditApiPostWrapperDTO redditPostDTO)
@@ -22,12 +23,14 @@ namespace RedditUWPApp.ViewModels
             Title = redditPostDTO.Data.Title;
             Description = redditPostDTO.Data.SelfText;
             Read = false;
+            Name = redditPostDTO.Data.Name;
 
-            if (IsImage(redditPostDTO.Data.Url))
-                ImageUri = redditPostDTO.Data.Url;
+            if (redditPostDTO.Data.Preview != null
+                && redditPostDTO.Data.Preview.Images != null
+                && redditPostDTO.Data.Preview.Images.Count > 0)
+                ImageUri = redditPostDTO.Data.Preview.Images.First().Source.Url;
             else
-                //ToDo: use locally stored img
-                ImageUri = "https://external-preview.redd.it/QJRqGgkUjhGSdu3vfpckrvg1UKzZOqX2BbglcLhjS70.png?auto=webp&s=c681ae9c9b5021d81b6c4e3a2830f09eff2368b5";
+                ImageUri = DEFAULT_IMAGE;
 
             CommentNumber = redditPostDTO.Data.Comments;
             User = redditPostDTO.Data.AuthorFullName;
@@ -38,6 +41,7 @@ namespace RedditUWPApp.ViewModels
         public string Title { get; set; }
         public string ImageUri { get; set; }
         public string User { get; set; }
+        public string Name { get; set; }
 
         public int CommentNumber { get; set; }
 

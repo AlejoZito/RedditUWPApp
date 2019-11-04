@@ -36,9 +36,28 @@ namespace RedditUWPApp.DataAccess.DTO
         /// </summary>
         public long Created { get; set; }
 
-        /// <summary>
-        /// ImageUrl if finished in "jpeg"?
-        /// </summary>
         public string Url { get; set; }
+
+        public PreviewDTO Preview { get; set; }
+    }
+
+    public class PreviewDTO
+    {
+        public List<ImageDTO> Images { get; set; }
+    }
+
+    public class ImageDTO
+    {
+        public SourceDTO Source { get; set; }
+    }
+
+    public class SourceDTO
+    {
+        public string Url { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+
+        //ToDo mapping
+        //public Resolution Resolutions
     }
 }
