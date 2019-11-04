@@ -7,10 +7,8 @@ using RedditUWPApp.DataAccess.DTO;
 
 namespace RedditUWPApp.ViewModels
 {
-    public class RedditPostViewModel
+    public class RedditPostViewModel : ViewModel
     {
-        private RedditApiPostWrapperDTO redditPostDTO;
-
         public RedditPostViewModel() { }
 
         public RedditPostViewModel(RedditApiPostWrapperDTO redditPostDTO)
@@ -22,23 +20,66 @@ namespace RedditUWPApp.ViewModels
         {
             Title = redditPostDTO.Data.Title;
             Description = redditPostDTO.Data.SelfText;
+            Read = false;
 
             if (IsImage(redditPostDTO.Data.Url))
                 ImageUri = redditPostDTO.Data.Url;
             else
-                ImageUri = "https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls/images/controls/relativepanelbasic.png";
+                //ToDo: use locally stored img
+                ImageUri = "https://external-preview.redd.it/QJRqGgkUjhGSdu3vfpckrvg1UKzZOqX2BbglcLhjS70.png?auto=webp&s=c681ae9c9b5021d81b6c4e3a2830f09eff2368b5";
+
+            CommentNumber = redditPostDTO.Data.Comments;
+            User = redditPostDTO.Data.AuthorFullName;
+            _CreatedDateTime = DateTime.FromFileTimeUtc(redditPostDTO.Data.Created);
         }
 
         public string Description { get; set; }
         public string Title { get; set; }
         public string ImageUri { get; set; }
+        public string User { get; set; }
+
+        public int CommentNumber { get; set; }
+
+        //ToDo: Should use CONVERTER in xaml
+        public string CommentNumberString
+        {
+            get { return CommentNumber + " Comments"; }
+        }
+
+        DateTime _CreatedDateTime;
+
+        public string CreatedDateTimeString
+        {
+            get
+            {
+                return (DateTime.Now - _CreatedDateTime).Hours + "hours ago";
+            }
+        }
+
+        bool _Read;
+        public bool Read
+        {
+            get { return _Read; }
+            set
+            {
+                _Read = value;
+                OnPropertyChanged(nameof(Read));
+            }
+        }
 
         public bool IsImage(string url)
         {
+            List<string> validImageExtensions = new List<string>() { "jpg", "png", "gif" };
+
             if (!string.IsNullOrEmpty(url) & url.Length > 3)
-                return url.Substring(url.Length - 3) == "jpg";
+                return validImageExtensions.Contains(url.Substring(url.Length - 3));
             else
                 return false;
+        }
+
+        public void MarkAsRead()
+        {
+            Read = true;
         }
     }
 }
