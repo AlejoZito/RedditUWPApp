@@ -13,7 +13,7 @@
         <ListView x:Name="postsLists"
                   ItemsSource="{x:Bind ViewModel.RedditPosts, Mode=TwoWay}"
                   MinWidth="300"
-                  Background="Coral"
+                  Background="Black"
                   RelativePanel.AlignBottomWithPanel="True"
                   RelativePanel.AlignTopWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
@@ -26,11 +26,12 @@
                     RelativePanel.AlignBottomWithPanel="True"
                   RelativePanel.AlignTopWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
-                    Width="400"
-                    Padding="4">
+                    Width="400">
                         <RelativePanel Padding="2">
-                            <TextBlock x:Name="listItem_user" Text="{x:Bind User}"/>
-                            <TextBlock x:Name="listItem_hour" RelativePanel.RightOf="listItem_user" Text="{x:Bind CreatedDateTimeString}"/>
+                            <Ellipse x:Name="listItem_read" Width="8" Height="8" Fill="{x:Bind ReadColor, Mode=TwoWay}"/>
+                            <TextBlock x:Name="listItem_user" RelativePanel.RightOf="listItem_read" Text="{x:Bind User}"/>
+                            <TextBlock x:Name="listItem_hour" RelativePanel.RightOf="listItem_user" Text="{x:Bind CreatedDateTimeString}"
+                                       Margin="10,0,0,0"/>
                         </RelativePanel>
                         <RelativePanel Padding="2">
                             <Image Width="44" Height="44" Grid.Row="0"
@@ -52,48 +53,19 @@
                                 VerticalAlignment="Bottom" 
                                 Padding="10,0,10,0" 
                                 BorderThickness="0"
-                        x:Name="listItem_DismissButton">
+                                x:Name="listItem_DismissButton"
+                                Click="ListItem_DismissButton_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Image HorizontalAlignment="Left" Source="Assets/StoreLogo.png" Height="20" Width="20"/>
                                     <TextBlock HorizontalAlignment="Center" Margin="12,0,0,0">Dismiss</TextBlock>
                                 </StackPanel>
                             </Button>
                             <TextBlock VerticalAlignment="Center" 
-                           RelativePanel.AlignVerticalCenterWithPanel="True" Text="{x:Bind CommentNumberString}"/>
+                                       RelativePanel.AlignVerticalCenterWithPanel="True" 
+                                       RelativePanel.AlignRightWithPanel="True"
+                                       Text="{x:Bind CommentNumberString}"/>
                         </RelativePanel>
-
-                    </StackPanel>
-                    <!--<Grid Padding="10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="300"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="2*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Image Width="44" Height="44" Grid.Row="0"
-                               HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Image.Source>
-                                <BitmapImage UriSource="{x:Bind ImageUri}" />
-                            </Image.Source>
-                        </Image>
-                        <TextBlock Text="{x:Bind Title}" Foreground="White" FontSize="14" 
-                                   Grid.Row="0" Grid.Column="1" VerticalAlignment="Top"/>
-                        <TextBlock Text="{x:Bind Description}" Foreground="White" FontSize="14" 
-                                   Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom"/>
-                        <Button Grid.Row="1" Grid.Column="0"
-                                Height="39" 
-                                HorizontalAlignment="Left" 
-                                VerticalAlignment="Bottom" 
-                                Padding="0" 
-                                BorderThickness="0">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="Assets/StoreLogo.png" Height="20" Width="20"/>
-                                <TextBlock>Dismiss</TextBlock>                                
-                            </StackPanel>
-                        </Button>
-                    </Grid>-->
+                    </StackPanel>                    
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -113,39 +85,5 @@
                        Text="{x:Bind ViewModel.SelectedPost.Description, Mode=TwoWay}"/>
         </StackPanel>
 
-        <!--<StackPanel Orientation="Vertical" Background="Purple"
-                    RelativePanel.AlignBottomWithPanel="True"
-                  RelativePanel.AlignTopWithPanel="True"
-                  RelativePanel.AlignLeftWithPanel="True"
-                    Width="400"
-                    Padding="4">
-            <RelativePanel>
-                <TextBlock x:Name="listItem_user">User</TextBlock>
-                <TextBlock x:Name="listItem_hour" RelativePanel.RightOf="listItem_user">Hour</TextBlock>                
-            </RelativePanel>
-            <RelativePanel>
-                <Image x:Name="listItem_Image" Source="Assets/StoreLogo.png" Width="50" Height="50"></Image>
-                <TextBlock RelativePanel.RightOf="listItem_Image"
-                           RelativePanel.AlignVerticalCenterWithPanel="True">Description</TextBlock>
-            </RelativePanel>
-            <RelativePanel>
-                <Button Grid.Row="1" Grid.Column="0"
-                                Height="39" 
-                                HorizontalAlignment="Left" 
-                                VerticalAlignment="Bottom" 
-                                Padding="0" 
-                                BorderThickness="0"
-                        x:Name="listItem_DismissButton">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="Assets/StoreLogo.png" Height="20" Width="20"/>
-                        <TextBlock>Dismiss</TextBlock>
-                    </StackPanel>
-                </Button>
-                <TextBlock VerticalAlignment="Center" 
-                           RelativePanel.AlignRightWithPanel="True"
-                           RelativePanel.AlignVerticalCenterWithPanel="True">20239 Comments</TextBlock>
-            </RelativePanel>
-
-        </StackPanel>-->
     </RelativePanel>
 </Page>

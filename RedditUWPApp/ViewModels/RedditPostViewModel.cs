@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RedditUWPApp.DataAccess.DTO;
+using Windows.UI.Xaml.Media;
 
 namespace RedditUWPApp.ViewModels
 {
@@ -64,8 +65,24 @@ namespace RedditUWPApp.ViewModels
             {
                 _Read = value;
                 OnPropertyChanged(nameof(Read));
+                OnPropertyChanged(nameof(ReadColor));
             }
         }
+
+        //ToDo should set and handle color change on xaml with converter
+        public string ReadColor
+        {
+
+            get
+            {
+                if (!Read)
+                    return "#ee295b";
+                else
+                    return "#828585";
+            }
+            set { } //Required for double binding to work. ToDo: Improve
+        }
+
 
         public bool IsImage(string url)
         {

@@ -23,9 +23,10 @@ namespace RedditUWPApp.ViewModels
             //});
         }
 
-        //ToDo: update observable collection with data from api
         public async Task GetData()
         {
+            //ToDo add Akavache Caching
+            //ToDo Pagination based on last item of current list
             var apiClient = new RedditApiClient();
             var redditPostsDTOs = await apiClient.GetRedditPosts(10);
 
@@ -48,6 +49,12 @@ namespace RedditUWPApp.ViewModels
         }
 
         public ObservableCollection<RedditPostViewModel> RedditPosts { get; set; }
+
+        public void Dismiss(RedditPostViewModel selectedItem)
+        {
+            if(RedditPosts.Contains(selectedItem))
+            RedditPosts.Remove(selectedItem);
+        }
 
         RedditPostViewModel _SelectedPost;
         public RedditPostViewModel SelectedPost

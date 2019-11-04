@@ -12,7 +12,7 @@ namespace RedditUWPApp.DataAccess
     public class RedditApiClient : HttpClient
     {
         //ToDo replace
-        const string GetRedditPostsUrl = "https://www.reddit.com/r/PHP/top.json?limit={#limit}";
+        const string GetRedditPostsUrl = "https://www.reddit.com/top.json?limit={#limit}";
 
         public async Task<List<RedditApiPostWrapperDTO>> GetRedditPosts(int limit, string after = "")
         {
