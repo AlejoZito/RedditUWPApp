@@ -8,12 +8,12 @@
     mc:Ignorable="d"
     xmlns:vm="using:RedditUWPApp.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <RelativePanel x:Name="Information" Background="Yellow">
-
+    <RelativePanel x:Name="Information">
+        <Image Source="Assets/bg.png" Width="300" Stretch="Fill"/>
         <ListView x:Name="postsLists"
                   ItemsSource="{x:Bind ViewModel.RedditPosts, Mode=TwoWay}"
-                  MinWidth="300"
-                  Background="Black"
+                  Width="300"
+                  Background="Transparent"
                   RelativePanel.AlignBottomWithPanel="True"
                   RelativePanel.AlignTopWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
@@ -22,60 +22,62 @@
                   SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="vm:RedditPostViewModel">
-                    <StackPanel Orientation="Vertical"
-                    RelativePanel.AlignBottomWithPanel="True"
-                  RelativePanel.AlignTopWithPanel="True"
-                  RelativePanel.AlignLeftWithPanel="True"
-                    Width="400">
-                        <RelativePanel Padding="2">
+                    <Grid Padding="10" Width="280">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <RelativePanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                             <Ellipse x:Name="listItem_read" Width="8" Height="8" Fill="{x:Bind ReadColor, Mode=TwoWay}"/>
-                            <TextBlock x:Name="listItem_user" RelativePanel.RightOf="listItem_read" Text="{x:Bind User}"/>
-                            <TextBlock x:Name="listItem_hour" RelativePanel.RightOf="listItem_user" Text="{x:Bind CreatedDateTimeString}"
-                                       Margin="10,0,0,0"/>
+                            <TextBlock x:Name="listItem_user" RelativePanel.RightOf="listItem_read" Text="{x:Bind User}" Foreground="#ffba26"/>
+                            <TextBlock x:Name="listItem_hour" RelativePanel.RightOf="listItem_user" Text="{x:Bind CreatedDateTimeString}" Margin="10,0,0,0"/>
                         </RelativePanel>
-                        <RelativePanel Padding="2">
-                            <Image Width="44" Height="44" Grid.Row="0"
-                               HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <RelativePanel Grid.Row="1" Grid.ColumnSpan="2" 
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10">
+                            <Image Width="44" Height="44" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
                                 <Image.Source>
                                     <BitmapImage UriSource="{x:Bind ImageUri}" />
                                 </Image.Source>
                             </Image>
-
-                            <TextBlock 
-                           RelativePanel.AlignVerticalCenterWithPanel="True"
-                            Text="{x:Bind Title}" Foreground="White" FontSize="14"
-                                Margin="60,0,0,0"/>
-                                <!--RelativePanel.RightOf="listItem_Image"-->
+                            <TextBlock RelativePanel.AlignVerticalCenterWithPanel="True" Text="{x:Bind Title}" 
+                                       TextWrapping="WrapWholeWords" Foreground="White" FontSize="14" Margin="60,0,0,0"/>
                         </RelativePanel>
-                        <RelativePanel Padding="2">
+                        <RelativePanel Grid.Row="2" Grid.ColumnSpan="2">
                             <Button
                                 HorizontalAlignment="Left" 
                                 VerticalAlignment="Bottom" 
                                 Padding="10,0,10,0" 
+                                Background="Transparent"
                                 BorderThickness="0"
                                 x:Name="listItem_DismissButton"
                                 Click="ListItem_DismissButton_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image HorizontalAlignment="Left" Source="Assets/StoreLogo.png" Height="20" Width="20"/>
-                                    <TextBlock HorizontalAlignment="Center" Margin="12,0,0,0">Dismiss</TextBlock>
-                                </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image HorizontalAlignment="Left" Source="Assets/close_icon.png" Height="20" Width="20"/>
+                                <TextBlock HorizontalAlignment="Center" Margin="10,0,0,0">Dismiss</TextBlock>
+                            </StackPanel>
                             </Button>
                             <TextBlock VerticalAlignment="Center" 
                                        RelativePanel.AlignVerticalCenterWithPanel="True" 
                                        RelativePanel.AlignRightWithPanel="True"
                                        Text="{x:Bind CommentNumberString}"/>
                         </RelativePanel>
-                    </StackPanel>                    
+                    </Grid>
+                                  
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel x:Name="TotalInformation" RelativePanel.RightOf="postsLists" MinWidth="100" Background="Aquamarine" 
+        <StackPanel x:Name="TotalInformation" RelativePanel.RightOf="postsLists" MinWidth="100" Background="#02111d" 
                     Orientation="Vertical"                    
                     RelativePanel.AlignBottomWithPanel="True"
                     RelativePanel.AlignTopWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True"
                     Padding="20">
-            <TextBlock Text="{x:Bind ViewModel.SelectedPost.Title, Mode=TwoWay}"/>
+            <TextBlock FontSize="34" Text="{x:Bind ViewModel.SelectedPost.Title, Mode=TwoWay}" TextWrapping="Wrap"/>
             <Image MaxWidth="300">
                 <Image.Source>
                     <BitmapImage UriSource="{x:Bind ViewModel.SelectedPost.ImageUri, Mode=TwoWay}"/>
