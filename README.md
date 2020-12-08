@@ -1,6 +1,6 @@
 # Reddit UWP App
 
-This app was developed as a coding challenge for an interview. The premise was to create a simple app to display reddit posts using UWP (Universal Windows Platform) in less than 4 hours.
+This app was developed as a coding challenge for a job application. The premise was to create a simple app to display reddit posts using UWP (Universal Windows Platform) in less than 4 hours.
 
 Some features include:
 * Side list navigation with a maximum of 10 items displayed.
